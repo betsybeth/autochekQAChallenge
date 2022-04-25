@@ -1,0 +1,33 @@
+{
+  "name": "autochekQAChallenge",
+  "version": "1.0.0",
+  "description": "Autochek End 2 Ends tests",
+  "main": "index.js",
+  "repository": "git@github.com:betsybeth/autochekQAChallenge.git",
+  "author": "betsybeth",
+  "license": "ISC",
+  "dependencies": {
+    "faker": "^6.6.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/eslint-parser": "^7.17.0",
+    "@babel/eslint-plugin": "^7.17.7",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "babel-plugin-istanbul": "^6.1.1",
+    "cypress": "^9.5.4",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "eslint-plugin-cucumber": "^2.0.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "prettier-eslint-cli": "^5.0.1"
+  },
+  "scripts": {
+    "test": "yarn run cypress open",
+    "lint:fix": "prettier-eslint \"**/*.js\" --write --log-level=warn --list-different && eslint \"**/*.js\" --fix",
+    "lint:check": "prettier-eslint --list-different \"**/*.js\""
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  }
+}
