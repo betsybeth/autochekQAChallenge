@@ -1,8 +1,8 @@
 FROM cypress/included:9.5.4
 
 COPY package.json package.json
-RUN npm i 
+RUN yarn install
 
 COPY ./cypress ./cypress
 
-RUN npm test
+RUN yarn test
