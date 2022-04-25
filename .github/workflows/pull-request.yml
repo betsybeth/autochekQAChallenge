@@ -33,6 +33,7 @@ jobs:
 
       - name: Lint
         run: |
+          yarn run lint:fix
           yarn run lint:check
 
       - name: Login to DockerHub
