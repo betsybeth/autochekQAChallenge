@@ -5,4 +5,4 @@ RUN yarn install
 
 COPY ./cypress ./cypress
 
-RUN yarn test
+ENTRYPOINT [ "cypress", "run" ]

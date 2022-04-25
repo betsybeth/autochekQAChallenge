@@ -4,11 +4,8 @@ on:
   push:
     branches:
       - main
-      - chore-setup-CI
   pull_request:
-    branches: 
-      - main
-      - chore-setup-CI
+    types: [opened, synchronize, reopened]
 
 jobs:
   build:
