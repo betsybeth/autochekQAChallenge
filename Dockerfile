@@ -6,4 +6,4 @@ RUN npm i
 
 COPY ./cypress ./cypress
 
-ENTRYPOINT [ "executable" ] ["npm test"]
+ENTRYPOINT ["npm" "test"]
