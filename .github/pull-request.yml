@@ -6,7 +6,9 @@ on:
       - main
       - chore-setup-CI
   pull_request:
-    types: [opened, synchronize, reopened]
+    branches: 
+      - main
+      - chore-setup-CI
 
 jobs:
   build:
