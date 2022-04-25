@@ -6,4 +6,4 @@ RUN npm i
 
 COPY ./cypress ./cypress
 
-ENTRYPOINT ["npm" "test"]
+CMD ["/bin/sh", "-c", "npm test"]
