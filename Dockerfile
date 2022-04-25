@@ -6,4 +6,4 @@ RUN npm i
 
 COPY ./cypress ./cypress
 
-CMD ["yarn run test"]
+CMD ["npm test"]

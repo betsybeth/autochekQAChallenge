@@ -1,10 +1,6 @@
 class AuthPage {
-  main;
-  ChooseCountryDropdownIcon =
-    "div.main-container div.header.hide-:nth-child(2) div.topbar div.container div.topbar-location div.input-container.select-container.no-border div.input-icon-container.rightIcon span.input-icon.right > svg:nth-child(1)";
-  chooseNigeriaOption =
-    "div.main-container div.header.hide-:nth-child(2) div.topbar div.container div.topbar-location div.input-container.select-container.no-border.isFocused ul.select-items > li:nth-child(1)";
-  registerNavItem = "register";
+  mainUrl = "https://marketplace.staging.myautochek.com/ng";
+  registerNavItem = "a[href='/en/ng/auth/register']";
   SigninNavItem = "Sign In";
   firstNameInputField = ".social-buttons > :nth-child(1) > div > .input";
   LastNameInputField = ".social-buttons > :nth-child(2) > div > .input";
@@ -13,7 +9,12 @@ class AuthPage {
   passwordInputField = ".relative > .input-container > div > .input";
   registerButton = ".button";
   loginInButton = ".button";
-
+  successText = ".success > p";
+  successPage = "https://marketplace.staging.myautochek.com/ke/auth/success";
+//  get the main page
+  visitNigeriaPage() {
+    cy.visit(this.mainUrl);
+  }
   fillFirstAndLastName(firstName, lastName) {
     cy.get(this.firstNameInputField)
       .clear()
@@ -26,15 +27,25 @@ class AuthPage {
     cy.get(this.emailAddressInputField)
       .clear()
       .type(email);
-    cy.get(this.PhoneNumberInputField)
-      .clear()
-      .type(phone);
+    cy.get(this.PhoneNumberInputField).type(phone);
   }
-  completeRegistrationFlow() {
-    this.fillFirstAndLastName();
-    this.fillEmailAndPhone();
+  completeRegistrationFlow(password) {
+    cy.get(this.passwordInputField)
+      .clear()
+      .type(password);
     cy.get(this.registerButton)
       .should("exist")
       .click();
   }
+  verifySuccessPage() {
+    cy.url().should("eq", this.successPage);
+    cy.get(this.successText)
+      .should("exist")
+      .should(
+        "have.text",
+        "Your have successfully signed up. The details you provided will be reviewed and you be notified of your account creation. Kindly check your email to verify your account."
+      );
+  }
 }
+
+export default AuthPage;

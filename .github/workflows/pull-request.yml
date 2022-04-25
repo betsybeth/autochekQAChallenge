@@ -46,11 +46,9 @@ jobs:
         with:
           context: ./
           file: ./Dockerfile
-          # builder: ${{ steps.buildx.outputs.name }}
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/autochek:latest
-          # cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/autochek:buildcache
-          # cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/autchek:buildcache,mode=max
+        
 
               
 
